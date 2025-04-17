@@ -7,11 +7,23 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+<script>
+    // Check if video is actually playing
+    document.addEventListener('DOMContentLoaded', function() {
+        const video = document.querySelector('.background-video');
+        video.play().catch(() => {
+            document.querySelector('.video-container').classList.add('no-autoplay');
+        });
+    });
+    </script>
 <body>
+    
+    <div class="loader"></div>
     <div class="video-container">
         <video autoplay muted loop playsinline class="background-video">
             <source src="background.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            <!-- Add poster image as fallback -->
+            <img src="fallback-image.jpg" alt="Background" class="fallback-image">
         </video>
     </div>
     <div class="container">
