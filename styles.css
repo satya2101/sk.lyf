@@ -266,3 +266,113 @@ h1 {
 .no-autoplay .fallback-image {
     display: block;
 }
+
+/* Add to styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:wght@800&family=Orbitron:wght@700&family=Rubik+Glitch&display=swap');
+
+/* GLOWING TITLE */
+.content h1 {
+  font-family: 'Kanit', sans-serif;
+  font-size: 4.5rem;
+  margin: 0 0 5px 0;
+  background: linear-gradient(45deg, #ff00cc, #3333ff, #00ccff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 15px rgba(255,255,255,0.3);
+  letter-spacing: 2px;
+  position: relative;
+  animation: neonGlow 2s infinite alternate;
+}
+
+@keyframes neonGlow {
+  0% { text-shadow: 0 0 10px rgba(255,51,204,0.7); }
+  100% { text-shadow: 0 0 20px rgba(51,153,255,0.9), 
+                    0 0 30px rgba(0,204,255,0.6); }
+}
+
+/* CYBERPUNK SUBTEXT */
+.content p {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  color: #00ffcc;
+  text-shadow: 0 0 8px #00ffcc;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+  animation: cyberPulse 3s infinite;
+}
+
+@keyframes cyberPulse {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 0.6; text-shadow: 0 0 12px #00ffcc; }
+}
+
+/* GLOWING 3D BUTTONS */
+.links a {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 3px;
+  background: linear-gradient(135deg, rgba(255,0,200,0.7), rgba(0,100,255,0.7));
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 200, 255, 0.4),
+              inset 0 2px 5px rgba(255,255,255,0.2);
+  padding: 18px 25px;
+  text-transform: uppercase;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.links a::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255,255,255,0.3) 0%,
+    rgba(255,255,255,0) 60%
+  );
+  transform: rotate(30deg);
+  transition: all 0.7s ease;
+}
+
+.links a:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 200, 255, 0.6),
+              inset 0 3px 8px rgba(255,255,255,0.3);
+  letter-spacing: 4px;
+}
+
+.links a:hover::before {
+  left: 100%;
+}
+
+.links a i {
+  font-size: 1.6rem;
+  margin-right: 15px;
+  filter: drop-shadow(0 0 3px rgba(255,255,255,0.7));
+}
+
+/* SPECIAL EFFECT FOR FIRST BUTTON */
+.links a:nth-child(1) {
+  background: linear-gradient(135deg, rgba(255,0,100,0.7), rgba(255,200,0,0.7));
+}
+
+/* RESPONSIVE TWEAKS */
+@media (max-width: 600px) {
+  .content h1 {
+    font-size: 3rem;
+  }
+  .content p {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+  }
+  .links a {
+    font-size: 1.1rem;
+    padding: 15px 20px;
+  }
+}
